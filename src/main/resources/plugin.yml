@@ -1,0 +1,16 @@
+name: Collectives
+version: '1.4'
+description: Best plugin for collectives
+main: net.kali.collectives.Collectives
+api-version: '1.21'
+authors: [ Kali_Jesc ]
+commands:
+  collectives:
+    usage: /collectives
+    description: Main command for znajdzki
+    permission-message: "&cYou don't have permission for this command!"
+    permission: collectives.adm
+
+permissions:
+  znajdzki.adm:
+    default: op

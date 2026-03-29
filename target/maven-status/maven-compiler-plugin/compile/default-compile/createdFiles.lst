@@ -1,0 +1,11 @@
+net\kali\collectives\utils\Formatter.class
+net\kali\collectives\Collectives.class
+net\kali\collectives\config\PlayersManager.class
+net\kali\collectives\utils\visuals\Visual.class
+net\kali\collectives\cmds\Collectives.class
+net\kali\collectives\utils\visuals\Message.class
+net\kali\collectives\utils\visuals\SingleMessage.class
+net\kali\collectives\utils\visuals\Particle.class
+net\kali\collectives\utils\visuals\Sound.class
+net\kali\collectives\utils\Won.class
+net\kali\collectives\config\ConfigManager.class

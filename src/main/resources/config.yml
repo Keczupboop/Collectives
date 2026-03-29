@@ -1,0 +1,158 @@
+#Max amount of collectibles
+max: 2
+
+
+#Available placeholders:
+#{player} -> Player name
+
+#Visuals section
+visuals:
+  #Visual is selected by ID
+  #e.g.
+  #/collectives mark Kali_Jesc found 1
+  #1 -> ID
+  #Visual is 1
+  1:
+    #Messages sent to the player who found the collectible
+    messages:
+      enabled: true
+      content:
+        - "<green>You found <b>first</b> collectible!"
+        - "<blue>This is second message from the same visual!"
+
+    #Sound played by the player who found the collectible
+    sound:
+      enabled: true
+      content: entity.fox.eat
+    #Particles spawned when player finds collectible
+    particles:
+      enabled: true
+      #Particles type
+      type: explosion
+      #Position at which particles are spawned
+      #Format:
+      #X
+      #Y
+      #Z
+      pos:
+        - 0
+        - 0
+        - 0
+      #Count of the particles
+      count: 20
+      #Offsets
+      #Format:
+      #X
+      #Y
+      #Z
+      offsets:
+        - 1
+        - 1
+        - 1
+      #Speed of the particles
+      speed: 0.1
+    #Actionbar shown to the player who found the collectible
+    actionbar:
+      enabled: true
+      content: "<blue>Congratulations!"
+    #Title shown to the player who found the collectible
+    title:
+      enabled: true
+      content: "<red>You found collectible!"
+  2:
+    messages:
+      enabled: true
+      content:
+        - "<green>You found <b>second</b> collectible!"
+    sound:
+      enabled: true
+      content: entity.fox.eat
+    particles:
+      enabled: true
+      type: explosion
+      pos:
+        - 0
+        - 0
+        - 0
+      count: 20
+      offsets:
+        - 1
+        - 1
+        - 1
+      speed: 0.1
+    actionbar:
+      enabled: true
+      content: "<blue>Congratulations!"
+    title:
+      enabled: true
+      content: "<red>You found collectible!"
+
+#Already found section
+#This is displayed to the player who has already found this collectible
+#Format is the same as visuals section
+already_found:
+  messages:
+    enabled: true
+    content:
+      - "<red>You already found that collective!"
+  sound:
+    enabled: true
+    content: entity.villager.no
+  particles:
+    enabled: false
+    type:
+    pos:
+      - 0
+      - 0
+      - 0
+    count: 20
+    offsets:
+      - 1
+      - 1
+      - 1
+    speed: 0.1
+  actionbar:
+    enabled: false
+    content: "<blue>Skibidi"
+  title:
+    enabled: true
+    content: "<red>You already found it!"
+
+#Won section
+#This is displayed to the player who found all {max} collectibles
+#Format is the same as visuals section
+won:
+  #Commands executed by the console when the player finds {max} collectibles
+  commands:
+    - give {player} diamond 1
+
+  messages:
+    enabled: true
+    content:
+      - "<gold>You won!"
+      - "<blue>You found all the collectibles!"
+  sound:
+    enabled: true
+    content: entity.villager.celebrate
+  particles:
+    enabled: false
+    type:
+    pos:
+      - 0
+      - 0
+      - 0
+    count: 20
+    offsets:
+      - 1
+      - 1
+      - 1
+    speed: 0.1
+  actionbar:
+    enabled: true
+    content: "<gold>You won!"
+  title:
+    enabled: true
+    content: "<blue>Congratulations!"
+
+#Do not change this!
+version: 1
