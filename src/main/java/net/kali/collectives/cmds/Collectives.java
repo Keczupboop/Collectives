@@ -20,8 +20,10 @@ import java.util.*;
 
 public class Collectives implements CommandExecutor, TabCompleter {
     private final net.kali.collectives.Collectives plugin;
+    private final Formatter formatter;
     public Collectives(net.kali.collectives.Collectives plugin) {
         this.plugin = plugin;
+        this.formatter = new Formatter(plugin);
     }
 
     @Override
@@ -112,7 +114,6 @@ public class Collectives implements CommandExecutor, TabCompleter {
                 //==================//
                 if (size == configManager.getMax()) {
                     Won won = configManager.getWon();
-                    Formatter formatter = plugin.getFormatter();
 
                     for (String cmd : won.commands) {
                         String toSend = formatter.format(cmd, target);
@@ -156,10 +157,14 @@ public class Collectives implements CommandExecutor, TabCompleter {
     }
 
     private void parseVisual(Visual visual, Player target) {
+        if (visual == null) {
+            return;
+        }
+
         //Message
         if (visual.message.enabled) {
             for (String message : visual.message.content) {
-                target.sendMessage(MiniMessage.miniMessage().deserialize(message));
+                target.sendMessage(MiniMessage.miniMessage().deserialize(formatter.format(message, target)));
             }
         }
 
@@ -192,12 +197,12 @@ public class Collectives implements CommandExecutor, TabCompleter {
 
         //Actionbar
         if (visual.actionBar.enabled) {
-            target.sendActionBar(MiniMessage.miniMessage().deserialize(visual.actionBar.content));
+            target.sendActionBar(MiniMessage.miniMessage().deserialize(formatter.format(visual.actionBar.content, target)));
         }
 
         //Title
         if (visual.title.enabled) {
-            Title title = Title.title(MiniMessage.miniMessage().deserialize(visual.title.content), Component.empty());
+            Title title = Title.title(MiniMessage.miniMessage().deserialize(formatter.format(visual.title.content, target)), Component.empty());
             target.showTitle(title);
         }
     }

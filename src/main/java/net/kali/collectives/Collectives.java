@@ -18,8 +18,6 @@ public final class Collectives extends JavaPlugin {
     private Map<Integer, Visual> visuals;
     private Visual alrFound;
 
-    private Formatter formatter = new Formatter();
-
     @Override
     public void onEnable() {
         configManager = new ConfigManager(this);
@@ -59,10 +57,6 @@ public final class Collectives extends JavaPlugin {
 
     public Map<UUID, List<Integer>> getPlayers() {
         return players;
-    }
-
-    public Formatter getFormatter() {
-        return formatter;
     }
 
     public Map<Integer, Visual> getVisuals() {

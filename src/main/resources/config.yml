@@ -4,6 +4,10 @@ max: 2
 
 #Available placeholders:
 #{player} -> Player name
+#{amount} -> Amount of found collectives (by player)
+#{maxAmount} -> Max amount of collectives
+#e.g.
+#"Hello {player}! You found {amount}/{maxAmount}!"
 
 #Visuals section
 visuals:
@@ -17,7 +21,7 @@ visuals:
     messages:
       enabled: true
       content:
-        - "<green>You found <b>first</b> collectible!"
+        - "<white>You found easter egg! <gray>({amount}/{maxAmount})"
         - "<blue>This is second message from the same visual!"
 
     #Sound played by the player who found the collectible
@@ -58,12 +62,12 @@ visuals:
     #Title shown to the player who found the collectible
     title:
       enabled: true
-      content: "<red>You found collectible!"
+      content: "<red>You found easter egg!"
   2:
     messages:
       enabled: true
       content:
-        - "<green>You found <b>second</b> collectible!"
+        - "<white>You found easter egg! <gray>({amount}/{maxAmount})"
     sound:
       enabled: true
       content: entity.fox.eat
@@ -113,7 +117,7 @@ already_found:
     speed: 0.1
   actionbar:
     enabled: false
-    content: "<blue>Skibidi"
+    content: ""
   title:
     enabled: true
     content: "<red>You already found it!"
